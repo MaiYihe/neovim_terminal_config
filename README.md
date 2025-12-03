@@ -3,6 +3,12 @@
 - wezterm 配置
 - bash 环境
 
+首次运行，请使用 `Lazy` 包管理器下载包，并使用 `Mason` 下载 LSP
+```bash
+Lazy sync
+Mason
+```
+
 ## Neovim 终端效果
 
 配置中集成了多种语言服务器（LSP），包括 Java、Lua、Python、Vue、HTML、CSS、TS、Markdown，提供完整的语法高亮、代码补全、诊断修复等功能。可以取代 VSCODE 和 IDEA 80% 的功能，足以应对日常开发。Neovim 具备出色的跨平台能力，一套配置即可在 Linux、macOS、Windows 上顺畅使用。同时，Vim 的键盘操作哲学让编码更加轻盈高效，让开发过程更优雅
@@ -57,6 +63,8 @@ gcc：代码注释
 `ys` + iw/2w/iwt：添加括号/引号/html tag
 `ds`：删除外面包裹内容
 `cs`：修改外面包裹内容
+S +包裹符号：在 Visual mode 选中后进行添加包裹
+S +4：在 Visual mode 选中后生成 `**内容**`（markdown 专用）
 
 `"+y`：复制到系统剪贴板
 `"+p`：从系统剪贴板板粘贴进来
