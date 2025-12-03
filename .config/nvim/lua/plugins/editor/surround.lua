@@ -1,5 +1,13 @@
 return {
 	"kylechui/nvim-surround",
 	event = "VeryLazy",
-	opts = {},
+	opts = {
+		surrounds = {
+			["4"] = {
+				add = function()
+					return { " **", "** " }
+				end,
+			},
+		},
+	},
 }
