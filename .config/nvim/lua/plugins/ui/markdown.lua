@@ -10,7 +10,6 @@ return {
 		-- 1. 配置 nvim-cmp（必须写在 function 里）
 		-------------------------------------------------------------------
 		local cmp = require("cmp")
-
 		cmp.setup.filetype("markdown", {
 			sources = cmp.config.sources({
 				{ name = "render-markdown" },
@@ -252,5 +251,4 @@ return {
 		-------------------------------------------------------------------
 		return opts
 	end,
-
 }

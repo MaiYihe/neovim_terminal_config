@@ -1,6 +1,7 @@
 这是我的 Linux 终端开发环境配置（使用 wezterm 作为虚拟终端），包括：
 - Neovim 配置
 - wezterm 配置
+- tmux 配置
 - bash 环境
 
 首次运行，请使用 `Lazy` 包管理器下载包，并使用 `Mason` 下载 LSP
