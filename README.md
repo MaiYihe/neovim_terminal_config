@@ -1,6 +1,6 @@
 这是我的 Linux 终端开发环境配置（使用 wezterm 作为虚拟终端），包括：
 - Neovim 配置
-- wezterm 配置
+- kitty/wezterm 配置
 - tmux 配置
 - bash 环境
 
