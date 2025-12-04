@@ -1,0 +1,10 @@
+input_method preedit
+
+# --- No Bell ---
+enable_audio_bell no
+visual_bell_duration 0
+
+# --- Cursor Style ---
+shell_integration no-cursor
+cursor_shape block
+cursor_blink_interval 0
