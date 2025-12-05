@@ -6,8 +6,8 @@
 
 首次运行，请使用 `Lazy` 包管理器下载包，并使用 `Mason` 下载 LSP
 ```bash
-Lazy sync
-Mason
+:Lazy sync
+:Mason
 ```
 
 ## Neovim 终端效果
@@ -26,7 +26,7 @@ Mason
 ![Java](images/java_jdtls.png)
 
 ### Markdown 效果展示
-本配置 Markdown 暂时不支持图片预览
+本配置 Markdown （支持图片预览）
 ![Markdown](images/markdown.png)
 
 ---
@@ -50,14 +50,24 @@ O：(递归)打开子文件夹
 #### LSP
 `<leader> `+ xx：打开诊断栏
 `<leader>` + f：自动格式化
+
+`<leader>`+ f：自动格式化
+`<leader>`+ rn：重命名（refactor）
+`<leader>`+ gd：跳转到定义
+`<leader>`+ K：悬停查看信息
+
+gcc：代码注释
+
+##### jdtls 专属操作（Java 开发相关）
+`<leader>`+ ca：诊断修复（Code Action）
+`<leader>`+ oi：重排 import、删除未使用的 import、去重、排序
+`<leader>`+ em：提取方法（进入 Visual mode）
+`<leader>`+ ec：提取常量
+`<leader>`+ ev：提取变量
+
+
 #### 内部终端
 `:toggle`：打开终端
-gcc：代码注释
-#### Lazy 包管理器
-`:Lazy`：打开包管理器
-`:Lazy sync`：打开包管理器的同时更新包
-#### mason
-`:mason`：打开 mason
 
 #### 内容操作
 `<leader> `+ hw（或 `:HopWord`）：全文快速跳转
@@ -70,17 +80,11 @@ S +4：在 Visual mode 选中后生成 `**内容**`（markdown 专用）
 `"+y`：复制到系统剪贴板
 `"+p`：从系统剪贴板板粘贴进来
 
-`<leader>`+ f：自动格式化
 
-`<leader>`+ rn：重命名（refactor）
-`<leader>`+ gd：跳转到定义
-`<leader>`+ K：悬停查看信息
-##### jdtls 专属操作（Java 开发相关）
-`<leader>`+ ca：诊断修复（Code Action）
-`<leader>`+ oi：重排 import、删除未使用的 import、去重、排序
-`<leader>`+ em：提取方法（进入 Visual mode）
-`<leader>`+ ec：提取常量
-`<leader>`+ ev：提取变量
+图片操作（基于 snacks ，建议使用 Kitty 终端）
+`<leader>`+ im：需光标移动到上，显示图片
+`<leader>`+ ip：从系统剪贴板粘贴图片
+
 
 #### telescope
 `<leader>`+ ff：搜索文件
