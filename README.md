@@ -4,7 +4,18 @@
 - tmux 配置
 - bash 环境
 
-首次运行，请使用 `Lazy` 包管理器下载包，并使用 `Mason` 下载 LSP
+建议安装 `stow` 对配置文件进行管理
+```bash 
+stow bash -t ~
+stow kitty -t ~
+stow nvim -t ~
+stow tmux -t ~
+stow wezterm -t ~
+stow xsession -t ~
+```
+- 运行前，应备份原配置文件
+
+首次进入 nvim ，请使用 `Lazy` 包管理器下载包，并使用 `Mason` 下载 LSP
 ```bash
 :Lazy sync
 :Mason
