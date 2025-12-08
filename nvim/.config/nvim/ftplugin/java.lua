@@ -56,6 +56,8 @@ local on_attach = function(_, bufnr)
 	map("n", "<leader>rn", vim.lsp.buf.rename, "Java Refactor Rename")
 end
 
+
+
 -- 支持 snippet 补全格式
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -97,3 +99,25 @@ local config = {
 }
 
 jdtls.start_or_attach(config)
+
+
+-- 🔥 停止 jdtls（不影响其他 LSP）
+local function stop_jdtls()
+  for _, client in ipairs(vim.lsp.get_active_clients()) do
+    if client.name == "jdtls" then
+      client.stop()
+    end
+  end
+end
+
+-- 🔥 重启：停止 → 重新 start_or_attach
+vim.api.nvim_create_user_command("JdtlsRestart", function()
+  stop_jdtls()
+  require("jdtls").start_or_attach(config) -- 这里 config 为 local，可直接捕获
+end, {})
+
+-- 🔄 手动启动
+vim.api.nvim_create_user_command("JdtlsStart", function()
+  require("jdtls").start_or_attach(config)
+end, {})
+

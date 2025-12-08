@@ -221,3 +221,4 @@ export PATH="$HOME/bin:$PATH"
 
 # 终端主题色
 eval "$(dircolors -b ~/.dircolors)"
+
