@@ -1,6 +1,3 @@
-# depend on ~/.profile
-[[ -f ~/.profile ]] && source ~/.profile
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -15,6 +12,11 @@ case $- in
 *i*) ;;
 *) return;;
 esac
+
+# 加载通用环境变量（保证非登录交互 shell 也能拿到）
+if [ -f "$HOME/.config/shell/env" ]; then
+  . "$HOME/.config/shell/env"
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
