@@ -30,3 +30,13 @@ vim.keymap.set("n", "<leader>lw", function()
   print(vim.wo.wrap and "➕ wrap" or "➖ nowrap")
 end, { desc = "Toggle wrap/nowrap" })
 
+
+-- grr 引用弹窗
+vim.keymap.set("n", "grr", function()
+  require("telescope.builtin").lsp_references({
+    include_declaration = true, 
+    show_line = true,
+    trim_text = true,
+  })
+end, { silent = true, noremap = true, desc = "LSP References (Telescope)" })
+
