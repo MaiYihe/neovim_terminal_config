@@ -33,7 +33,9 @@ stow xsession -t ~
 
 ### Java 开发效果展示
 
-支持 Spring 单体项目、微服务项目开发(建议结合 tmux)
+支持 Spring 单体项目、微服务项目开发(微服务开发建议建议结合 tmux 使用，可以方便进行窗口多开)
+- 配置中的 JDTLS 依赖系统的 `$JAVA_HOME`，建议 JDK 升级到 17 及以上的版本
+
 ![Java](images/java_jdtls.png)
 
 ### Markdown 效果展示
