@@ -211,14 +211,6 @@ function proxyshow() {
   fi
 }
 
-# gulimall
-export GULIMALL=~/Documents/6_Interest-drivenProject/Gulimall
-
-# JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
-export PATH=$JAVA_HOME/bin:$PATH
-export PATH="$HOME/bin:$PATH"
-
 # 终端主题色
 eval "$(dircolors -b ~/.dircolors)"
 

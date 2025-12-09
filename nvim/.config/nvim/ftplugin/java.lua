@@ -65,7 +65,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- jdtls 配置表
 local config = {
 	cmd = {
-		"java",
+		"java", -- ← 直接使用 PATH / JAVA_HOME 中的 java
 		"-javaagent:" .. lombok,
 
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
