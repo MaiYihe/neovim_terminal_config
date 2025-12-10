@@ -103,12 +103,12 @@ jdtls.start_or_attach(config)
 
 -- 🔥 停止 jdtls（不影响其他 LSP）
 local function stop_jdtls()
-  for _, client in ipairs(vim.lsp.get_active_clients()) do
-    if client.name == "jdtls" then
-      client.stop()
-    end
+  for _, client in ipairs(vim.lsp.get_clients({ name = "jdtls" })) do
+    client:stop()
   end
 end
+
+
 
 -- 🔥 重启：停止 → 重新 start_or_attach
 vim.api.nvim_create_user_command("JdtlsRestart", function()
