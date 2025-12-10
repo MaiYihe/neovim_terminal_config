@@ -27,12 +27,19 @@ return {
 				file_name = "Pasted_image_%Y%m%d%H%M%S",
 				prompt_for_file_name = false,
 
+				-- 日志：关掉“不是图片”的提示
+				verbose = false,
+
 				-- 🚀 拷贝拖拽图片
 				copy_images = true,
 
 				-- 🚀 控制返回相对路径不带 ../
 				use_absolute_path = false,
 				relative_template_path = true,
+
+				auto_clipboard = false,
+				url_encode_path = false,
+				download_images = true,
 			},
 
 			filetypes = {
@@ -54,15 +61,26 @@ return {
 
 						return string.format("![图片](%s)", file_path)
 					end,
-
-					url_encode_path = false,
-					download_images = true,
 				},
 			},
 		}
 	end,
 
 	keys = {
-		{ "<leader>ip", "<cmd>PasteImage<CR>", desc = "Paste image" },
+		{
+			"<leader>ip",
+			function()
+				if vim.bo.filetype ~= "markdown" then
+					vim.notify("仅 Markdown 支持粘贴图片", vim.log.levels.WARN)
+					return
+				end
+				vim.cmd("PasteImage")
+			end,
+			mode = "n",
+			desc = "Paste image",
+		},
 	},
+	-- keys = {
+	-- 	{ "<leader>ip", "<cmd>PasteImage<CR>", mode = "n", desc = "Paste image" },
+	-- },
 }
