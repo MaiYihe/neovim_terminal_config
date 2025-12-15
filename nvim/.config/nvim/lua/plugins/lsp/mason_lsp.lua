@@ -27,7 +27,6 @@ return {
 				"cssls",
 				"html",
 				"tailwindcss",
-				"eslint",
 
 				-- 配置文件
 				"jsonls",
