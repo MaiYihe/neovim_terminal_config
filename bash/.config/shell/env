@@ -33,3 +33,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# SpringBoot 开发配置文件
+export SPRING_PROFILES_ACTIVE=dev
