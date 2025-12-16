@@ -45,10 +45,9 @@ vim.api.nvim_create_autocmd("FileType", {
 -- 阻止 toggle_terminal 的光标闪烁
 vim.opt.guicursor:append("t:block-blinkon0")
 
-
 -- 全局文件自动保存
-vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged"}, {
-  callback = function()
-    vim.cmd("silent! write")
-  end,
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+	callback = function()
+		vim.cmd("silent! write")
+	end,
 })
