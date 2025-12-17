@@ -13,9 +13,8 @@ return
       vue = { "prettier" },
       html = { "prettier" },
       css = { "prettier" },
-      xml = { }, -- 自动 LSP fallback
+      xml = {},           -- 自动 LSP fallback
       java = { "jdtls" }, -- ⭐ jdtls 内置 Formatter
     },
-
   },
 }
