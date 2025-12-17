@@ -56,8 +56,6 @@ local on_attach = function(_, bufnr)
 	map("n", "<leader>ev", jdtls.extract_variable, "Extract Variable")
 	map("n", "<leader>ec", jdtls.extract_constant, "Extract Constant")
 
-	---- ⭐ IDEA 级别：类名改→文件名改→全项目改
-	map("n", "<leader>rn", vim.lsp.buf.rename, "Java Refactor Rename")
 end
 
 -- 支持 snippet 补全格式

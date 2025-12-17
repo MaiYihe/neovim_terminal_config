@@ -23,20 +23,24 @@ vim.keymap.set("v", "<Tab>", ">gv", { desc = "Visual indent right" })
 -- Visual 模式 Shift+Tab 缩进 → 左缩进，且保持选区
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Visual indent left" })
 
-
 -- 快捷键 lw（lineWrap），控制行是否 wrap（是否要自动换行显示）
 vim.keymap.set("n", "<leader>lw", function()
-  vim.wo.wrap = not vim.wo.wrap
-  print(vim.wo.wrap and "➕ wrap" or "➖ nowrap")
+	vim.wo.wrap = not vim.wo.wrap
+	print(vim.wo.wrap and "➕ wrap" or "➖ nowrap")
 end, { desc = "Toggle wrap/nowrap" })
-
 
 -- grr 引用弹窗
 vim.keymap.set("n", "grr", function()
-  require("telescope.builtin").lsp_references({
-    include_declaration = true, 
-    show_line = true,
-    trim_text = true,
-  })
+	require("telescope.builtin").lsp_references({
+		include_declaration = true,
+		show_line = true,
+		trim_text = true,
+	})
 end, { silent = true, noremap = true, desc = "LSP References (Telescope)" })
 
+-- rn 重命名快捷键
+vim.keymap.set("n", "<leader>rn", function()
+  vim.defer_fn(function()
+    vim.lsp.buf.rename()
+  end, 150)
+end, { desc = "LSP Rename (deferred)" })
