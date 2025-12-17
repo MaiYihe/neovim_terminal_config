@@ -95,6 +95,14 @@ local config = {
 
 	init_options = {
 		bundles = bundles, -- ★★★ 关键：告诉 JDTLS 加载这些扩展
+		settings = {
+			java = {
+				files = {
+					-- 排除 target 目录
+					exclude = { "target" },
+				},
+			},
+		},
 	},
 }
 
