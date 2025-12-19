@@ -6,7 +6,7 @@ local root = vim.fs.root(0, { "mvnw" }) or vim.fn.getcwd()
 
 -- 模块名与哈希——绝对防冲突（同名 repo）
 local module_name = vim.fn.fnamemodify(root, ":t")
-local hash = vim.fn.sha256(root):sub(1, 8)
+-- local hash = vim.fn.sha256(root):sub(1, 8)
 
 -- jdtls 安装路径（mason）
 local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
@@ -18,7 +18,7 @@ local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launche
 local lombok = jdtls_path .. "/lombok.jar"
 
 -- workspace（缓存存放地址）
-local workspace = vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. module_name .. "_" .. hash
+local workspace = vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. module_name
 
 -- JDTLS 扩展（extract method/variable/constant 必须）
 local bundles = {}
@@ -31,10 +31,6 @@ vim.list_extend(
 		),
 		"\n"
 	)
-)
-vim.list_extend(
-	bundles,
-	vim.split(vim.fn.glob(vim.fn.stdpath("data") .. "/mason/packages/java-test/extension/server/*.jar"), "\n")
 )
 
 -- java 快捷键
@@ -107,35 +103,3 @@ local config = {
 }
 
 jdtls.start_or_attach(config)
-
--- 🔥 停止 jdtls（不影响其他 LSP）
-local function stop_jdtls()
-	for _, client in ipairs(vim.lsp.get_clients({ name = "jdtls" })) do
-		client:stop()
-	end
-end
-
--- 🔥 重启：停止 JDTLS → 重新 start_or_attach 当前项目
-vim.api.nvim_create_user_command("JdtlsRestart", function()
-	stop_jdtls()
-	require("jdtls").start_or_attach(config) -- 这里 config 为 local，可直接捕获
-end, {})
-
--- 🔄 手动启动
-vim.api.nvim_create_user_command("JdtlsStart", function()
-	require("jdtls").start_or_attach(config)
-end, {})
-
--- 清除 JDTLS 缓存指令
-vim.api.nvim_create_user_command("JdtlsNuke", function()
-	if not workspace or workspace == "" then
-		vim.notify("JDTLS workspace not found", vim.log.levels.WARN)
-		return
-	end
-
-	vim.notify("Removing JDTLS workspace:\n" .. workspace, vim.log.levels.INFO)
-
-	vim.fn.system({ "rm", "-rf", workspace })
-
-	vim.notify("Done. Restart Neovim or run :JdtlsRestart", vim.log.levels.INFO)
-end, {})
