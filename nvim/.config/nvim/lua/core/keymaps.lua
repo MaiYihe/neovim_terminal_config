@@ -39,8 +39,7 @@ vim.keymap.set("n", "grr", function()
 end, { silent = true, noremap = true, desc = "LSP References (Telescope)" })
 
 -- rn 重命名快捷键
-vim.keymap.set("n", "<leader>rn", function()
-  vim.defer_fn(function()
-    vim.lsp.buf.rename()
-  end, 150)
-end, { desc = "LSP Rename (deferred)" })
+vim.keymap.set("n", "rn", function()
+  vim.cmd("silent write")
+  vim.lsp.buf.rename()
+end, { desc = "Safe rename (write before)" })
