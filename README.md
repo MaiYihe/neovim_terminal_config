@@ -1,7 +1,9 @@
 这是我的 Linux 终端开发环境配置（使用 wezterm 作为虚拟终端），包括：
-- Neovim 配置
+- neovim 配置
+    - （Linux 环境下）用于：Java 开发、前端开发、lua 与 python 脚本、markdown 笔记
 - kitty/wezterm 配置
 - tmux 配置
+- yazi 配置
 - bash 环境
 
 建议安装 `stow` 对配置文件进行管理
@@ -34,19 +36,30 @@ stow xsession -t ~
 ### Java 开发效果展示
 
 支持 Spring 单体项目、微服务项目开发(微服务开发建议建议结合 tmux 使用，可以方便进行窗口多开)
-- 配置中的 JDTLS 依赖系统的 `$JAVA_HOME`，建议 JDK 升级到 17 及以上的版本
+- Mason 管理 eclipse-jdtls；使用 nvim-jdtls 连接 nvim 与 eclipse-jdtls
+- eclipse-jdtls 本质是一个 java 程序。截至 2025 年 12 月，eclipse-jdtls 推荐使用 JDK 21 及以上的环境运行
+- nvim-jdtls 关联的配置信息写在 `ftplugin/java.lua` 当中。配置内容含有：
+	- 用哪个 Java 启动（配置中使用了系统自带的 java 指令，确保系统的 `%JAVA_HOME` 为 JDK 21 及以上的版本）
+	- Lombok 注入（Java 项目必备）——让 JDTLS 在“ **语义分析阶段** ”理解 Lombok 生成的字段 / 方法
+	- Eclipse / JDTLS 身份参数（固定模板）
+	- 日志级别
+	- Java 21 模块系统放行（Eclipse / JDTLS 需要反射访问 JDK 内部 API，Java 21 默认是禁止的，所以必须显式“开门”）
+	- 启动入口：launcher.jar（eclipse-jdtls 真正的 main 入口）
+	- 平台配置（linux/mac/win，配置中默认使用 linux）
+	- 缓存目录（workspace，文件名设置为：当前模块名 + 路径哈希值）
+- nvim-jdtls 提供的常用指令：`:JdtRestart` `:JdtShowLogs`
 
 ![Java](images/java_jdtls.png)
 
 ### Markdown 效果展示
-本配置 Markdown （支持图片预览）
+本配置 Markdown 效果如下，集成 snacks ，结合 kitty 终端可以支持图片预览；在文件树中配置识别 `数字_标题` 的格式，将“数字”部分进行从小到大的排序，并且渲染颜色为琥珀色
 ![Markdown](images/markdown.png)
 
 ---
 
-## 使用快捷键
+## 常用使用快捷键
 
-`<leader> `设置为了空格
+`<leader> `设置为空格
 
 #### window（窗口）快捷键
 Ctrl + w + h/l/j/k：切换显示窗口
@@ -116,7 +129,7 @@ S +4：在 Visual mode 选中后生成 `**内容**`（markdown 专用）
 `"+p`：从系统剪贴板板粘贴进来
 
 
-图片操作（基于 snacks ，建议使用 Kitty 终端）
+图片操作（基于 snacks ，建议结合使用 Kitty 终端）
 
 `<leader>`+ im：需光标移动到上，显示图片
 
