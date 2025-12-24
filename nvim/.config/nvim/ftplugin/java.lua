@@ -1,6 +1,15 @@
 local jdtls = require("jdtls")
 
-vim.notify("java ftplugin loaded", vim.log.levels.INFO)
+--  判断 JDTLS 是否启动的函数
+local function has_jdtls_attached(root_dir)
+	local clients = vim.lsp.get_clients()
+	for _, client in ipairs(clients) do
+		if client.name == "jdtls" and client.config.root_dir == root_dir then
+			return true
+		end
+	end
+	return false
+end
 
 -- 查找项目根-默认会根据打开的文件，往上找指定后缀
 -- 不能匹配 pom.xml，因为每个微服务子模块都有 pom.xml
@@ -10,7 +19,11 @@ if not root then
 	return
 end
 
-vim.notify("root = " .. tostring(root))
+-- 判断 JDTLS 是否启动，如果未启动再弹窗
+if not has_jdtls_attached(root) then
+	vim.notify("Starting jdtls …", vim.log.levels.INFO)
+	vim.notify("root = " .. root)
+end
 
 -- 模块名与哈希——绝对防冲突（同名 repo）
 local module_name = vim.fn.fnamemodify(root, ":t")
@@ -20,9 +33,7 @@ local module_name = vim.fn.fnamemodify(root, ":t")
 local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 
 -- launcher jar（jdtls 的真正入口）
-local launcher = vim.fn.glob(
-  jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"
-)
+local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
 -- lombok（mason 自带）
 local lombok = jdtls_path .. "/lombok.jar"
@@ -68,7 +79,6 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-
 -- jdtls 配置表
 local config = {
 	cmd = {
@@ -102,9 +112,12 @@ local config = {
 
 	settings = {
 		java = {
-			files = {
-				-- 排除 target 目录
-				exclude = { "target" },
+			import = {
+				exclusions = {
+					"**/target/**",
+					"**/.git/**",
+					"**/.idea/**",
+				},
 			},
 		},
 	},
