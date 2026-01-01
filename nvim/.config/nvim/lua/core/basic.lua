@@ -51,3 +51,15 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 		vim.cmd("silent! write")
 	end,
 })
+
+--
+-- -- 在每次跳转后，确保跳转的 buffer 在当前 window 上显示
+-- vim.api.nvim_create_autocmd({"BufEnter"}, {
+--   callback = function()
+--     -- 如果跳转的是新的 buffer
+--     if vim.fn.winnr('$') == 1 then
+--       vim.cmd("buffer " .. vim.fn.bufname('%'))
+--     end
+--   end
+-- })
+

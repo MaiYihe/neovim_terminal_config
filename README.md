@@ -25,7 +25,7 @@ stow xsession -t ~
 
 ## Neovim 终端效果
 
-配置中集成了多种语言服务器（LSP），包括 Java、Lua、Python、Vue、HTML、CSS、TS、Markdown，提供完整的语法高亮、代码补全、诊断修复等功能。可以取代 VSCODE 和 IDEA 80% 的功能，足以应对日常开发。Neovim 具备出色的跨平台能力，一套配置即可在 Linux、macOS、Windows 上顺畅使用。同时，Vim 的键盘操作哲学让编码更加轻盈高效，让开发过程更优雅
+配置中集成了多种语言服务器（LSP），包括 Java、Lua、Rust、Python、Vue、HTML、CSS、TS、Markdown，提供完整的语法高亮、代码补全、诊断修复等功能。可以取代 VSCODE 和 IDEA 80% 的功能，足以应对日常开发。Neovim 具备出色的跨平台能力，一套配置即可在 Linux、macOS、Windows 上顺畅使用。同时，Vim 的键盘操作哲学让编码更加轻盈高效，让开发过程更优雅
 
 ##### 缩进效果
 前端与 Lua 脚本默认缩进使用两个空格；Java 默认缩进使用四个空格
