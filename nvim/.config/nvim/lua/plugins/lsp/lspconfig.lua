@@ -73,5 +73,22 @@ return {
 			},
 		})
 		vim.lsp.enable("lua_ls")
+
+		-- ⭐ Rust 专用增强（用系统自带的 rust-analyzer）
+		local has_system_ra = vim.fn.executable("rust-analyzer") == 1
+		vim.lsp.config("rust_analyzer", {
+			cmd = has_system_ra and { "rust-analyzer" } or nil,
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				["rust-analyzer"] = {
+					checkOnSave = true,
+					check = {
+						command = "clippy",
+					},
+				},
+			},
+		})
+		vim.lsp.enable("rust_analyzer")
 	end,
 }

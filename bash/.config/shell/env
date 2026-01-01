@@ -36,3 +36,6 @@ eval "$(jenv init -)"
 
 # SpringBoot 开发配置文件
 export SPRING_PROFILES_ACTIVE=dev
+
+# rust
+. "$HOME/.cargo/env"

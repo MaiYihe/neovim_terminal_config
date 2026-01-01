@@ -38,6 +38,9 @@ return {
 
 				-- Lua
 				"lua_ls",
+
+				-- Rust（不去 Mason 下，用系统自带的）
+				-- "rust_analyzer",
 			},
 
 			automatic_installation = true,
