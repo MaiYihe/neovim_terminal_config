@@ -2,6 +2,7 @@
 - neovim 配置
     - （Linux 环境下）用于：Java 开发、前端开发、lua 与 python 脚本、markdown 笔记
 - kitty/wezterm 配置
+    - 对于 kitty，ssh 连接到的设备需要安装 `kitty-terminfo`，不然 ssh 时终端的体验会降级
 - tmux 配置
 - yazi 配置
 - bash 环境
