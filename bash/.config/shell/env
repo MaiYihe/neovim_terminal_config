@@ -39,3 +39,6 @@ export SPRING_PROFILES_ACTIVE=dev
 
 # rust
 . "$HOME/.cargo/env"
+
+# snvim ，即让 nvim 打开的是 sudo 访问的，从而允许保存
+alias snvim="sudo -E /home/linuxbrew/.linuxbrew/bin/nvim"
