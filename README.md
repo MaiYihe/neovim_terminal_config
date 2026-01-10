@@ -40,7 +40,7 @@ stow xsession -t ~
 - Mason 管理 eclipse-jdtls；使用 nvim-jdtls 连接 nvim 与 eclipse-jdtls
 - eclipse-jdtls 本质是一个 java 程序。截至 2025 年 12 月，eclipse-jdtls 推荐使用 JDK 21 及以上的环境运行
 - nvim-jdtls 关联的配置信息写在 `ftplugin/java.lua` 当中。配置内容含有：
-	- 用哪个 Java 启动（配置中使用了系统自带的 java 指令，确保系统的 `%JAVA_HOME` 为 JDK 21 及以上的版本）
+	- 用哪个 Java 启动（配置中使用了 `/user/lib/jvm/java-21-openjdk-amd64/`）
 	- Lombok 注入（Java 项目必备）——让 JDTLS 在“ **语义分析阶段** ”理解 Lombok 生成的字段 / 方法
 	- Eclipse / JDTLS 身份参数（固定模板）
 	- 日志级别
