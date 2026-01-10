@@ -79,10 +79,13 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local java21 = "/usr/lib/jvm/java-21-openjdk-amd64/bin/java"
+
 -- jdtls 配置表
 local config = {
 	cmd = {
-		"java", -- ← 直接使用 PATH / JAVA_HOME 中的 java
+		-- "java", -- ← 直接使用 PATH / JAVA_HOME 中的 java
+    java21,
 		"-javaagent:" .. lombok,
 
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
