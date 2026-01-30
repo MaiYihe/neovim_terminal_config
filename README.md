@@ -53,7 +53,10 @@ stow xsession -t ~
 ![Java](images/java_jdtls.png)
 
 ### Markdown 效果展示
-本配置 Markdown 效果如下，集成 snacks ，结合 kitty 终端可以支持图片预览；在文件树中配置识别 `数字_标题` 的格式，将“数字”部分进行从小到大的排序，并且渲染颜色为琥珀色
+本配置 Markdown 效果如下，集成 snacks ，结合 kitty 终端可以支持图片预览；集成 mdmath 支持数学公式的预览；
+- 预览数学公式，需要在当前环境下安装 SVG 转换工具，推荐使用 `rsvg-convert`
+
+在文件树中配置识别 `数字_标题` 的格式，将“数字”部分进行从小到大的排序，并且渲染颜色为琥珀色
 ![Markdown](images/markdown.png)
 
 ---
