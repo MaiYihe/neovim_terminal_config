@@ -85,7 +85,7 @@ local java21 = "/usr/lib/jvm/java-21-openjdk-amd64/bin/java"
 local config = {
 	cmd = {
 		-- "java", -- ← 直接使用 PATH / JAVA_HOME 中的 java
-    java21,
+		java21,
 		"-javaagent:" .. lombok,
 
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -116,6 +116,10 @@ local config = {
 	settings = {
 		java = {
 			import = {
+        -- 显示引入 maven
+				maven = {
+					enabled = true,
+				},
 				exclusions = {
 					"**/target/**",
 					"**/.git/**",
