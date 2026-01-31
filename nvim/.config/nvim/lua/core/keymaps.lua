@@ -43,3 +43,8 @@ vim.keymap.set("n", "rn", function()
   vim.cmd("silent write")
   vim.lsp.buf.rename()
 end, { desc = "Safe rename (write before)" })
+
+-- change 默认不污染寄存器
+vim.keymap.set({ "n", "x", "o" }, "c", '"_d', { noremap = true })
+vim.keymap.set("n", "cc", '"_dd', { noremap = true })
+
