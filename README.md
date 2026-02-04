@@ -151,13 +151,8 @@ S +4：在 Visual mode 选中后生成 `**内容**`（markdown 专用）
 
 `<leader>`+ fo：搜快捷键
 
-
-`<leader>`+ gc：查看 git 提交记录（git commits）
-
-`<leader>`+ gC：查看当前文件的 git 提交记录
-
-`<leader>`+ gb：查看 git 分支结构（git branch）
-
-`<leader>`+ gs：查看前工作区与暂存区的状态——哪些文件变更（git status）
-
-`<leader>`+ gS：查看 stash 内容（git stash list）
+要让一些搜索可用，必须安装 `ripgrep` 依赖
+```bash 
+sudo apt install ripgrep
+```
+- 因为 telescope 只是调用外部命令
