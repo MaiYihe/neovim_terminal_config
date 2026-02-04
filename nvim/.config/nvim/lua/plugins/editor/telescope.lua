@@ -59,11 +59,5 @@ return {
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help Tags" })
 		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Old Files" })
 
-		-- git 相关快捷键（<leader> + g + *）
-		vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git Commits" })
-		vim.keymap.set("n", "<leader>gC", builtin.git_bcommits, { desc = "Git Commits for Current File" })
-		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Git Branches" })
-		vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git Status" })
-		vim.keymap.set("n", "<leader>gS", builtin.git_stash, { desc = "Git Stash" })
 	end,
 }
