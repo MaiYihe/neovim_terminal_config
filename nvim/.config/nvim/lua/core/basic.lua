@@ -51,3 +51,10 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 		vim.cmd("silent! write")
 	end,
 })
+
+-- 自动检测外部（比如 codex）对当前文件的更改
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+  pattern = "*",
+  command = "checktime",
+})
