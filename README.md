@@ -23,6 +23,7 @@ stow xsession -t ~
 :Lazy sync
 :Mason
 ```
+- 某些语言服务器依赖 node 和 npm
 
 ## Neovim 终端效果
 
