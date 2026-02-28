@@ -139,7 +139,7 @@ fi
 function proxyon() {
   # 默认值
   local IP="192.168.1.1"
-  local PORT="10809"
+  local PORT="7890"
 
   # 解析参数
   while [[ $# -gt 0 ]]; do
