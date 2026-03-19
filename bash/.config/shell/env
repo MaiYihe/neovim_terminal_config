@@ -45,3 +45,6 @@ alias snvim="sudo -E /home/linuxbrew/.linuxbrew/bin/nvim"
 
 # kitty
 export PATH="$HOME/.local/kitty.app/bin:$PATH"
+
+# Java 一键编译运行
+alias jrun="javac Main.java && java Main"
